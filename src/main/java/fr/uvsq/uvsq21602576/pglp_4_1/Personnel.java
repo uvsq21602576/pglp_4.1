@@ -44,7 +44,7 @@ public class Personnel {
 
 	public Personnel(Builder builder) {
 		this.nom = builder.nom;
-		this.prenom = builder.nom;
+		this.prenom = builder.prenom;
 		this.dateNaissance = builder.dateNaissance;
 		this.fonction = builder.fonction;
 		this.numeros = builder.numeros;

@@ -9,8 +9,14 @@ public class Telephone {
 		this.numero = num;
 	}
 	
-	public boolean equals(Telephone T) {
-		return this.information.equals(T.getInformation()) && this.numero.equals(T.getNumero());
+	@Override
+	public boolean equals(Object O) {
+		if(!(O instanceof Telephone))
+			return false;
+		else {
+			Telephone T = (Telephone) O;
+			return this.information.equals(T.getInformation()) && this.numero.equals(T.getNumero());
+		}
 	}
 	
 	public String getInformation() {
