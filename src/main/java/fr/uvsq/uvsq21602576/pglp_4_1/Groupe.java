@@ -1,6 +1,7 @@
 package fr.uvsq.uvsq21602576.pglp_4_1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Groupe implements Composant{
 	private ArrayList<Composant> composantFils;
@@ -40,5 +41,45 @@ public class Groupe implements Composant{
 	
 	public int size() {
 		return composantFils.size();
+	}
+
+	public ArrayList<String> hierarchie() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Groupe");
+		Iterator<Composant> ite = this.iterator();
+		Composant c;
+		while(ite.hasNext()) {
+			c = ite.next();
+			for(String s : c.hierarchie()) {
+				if(s.substring(0, 1).equals("\t"))
+					s = "\t"+s;
+				else
+					s = "\t|-   "+s;
+				list.add(s);
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<String> groupe() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Groupe");
+		Iterator<Composant> ite = this.iterator();
+		Composant c;
+		while(ite.hasNext()) {
+			c = ite.next();
+			for(String s : c.hierarchie()) {
+				if(s.substring(0, 1).equals("\t"))
+					s = "\t"+s;
+				else
+					s = "\t|-   "+s;
+				list.add(s);
+			}
+		}
+		return list;
+	}
+
+	public Iterator<Composant> iterator() {
+		return composantFils.iterator();
 	}
 }

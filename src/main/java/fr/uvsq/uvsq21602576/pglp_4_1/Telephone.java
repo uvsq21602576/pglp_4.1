@@ -26,5 +26,10 @@ public class Telephone {
 	public String getNumero() {
 		return numero;
 	}
+	
+	@Override
+	public String toString() {
+		return "(" + this.information + ") " + this.numero;
+	}
 
 }

@@ -2,6 +2,7 @@ package fr.uvsq.uvsq21602576.pglp_4_1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Personnel implements Composant{
 	
@@ -68,6 +69,30 @@ public class Personnel implements Composant{
 	
 	public ArrayList<Telephone> getNumeros() {
 		return new ArrayList<Telephone>(numeros);
+	}
+	
+	@Override
+	public String toString() {
+		String S = this.nom + " " + this.prenom;
+		S+= ", " + this.fonction;
+		S+= " (" + this.dateNaissance.toString() + ")";
+		S+= " [";
+		for(Telephone t : numeros) {
+			S+= t.toString() + ", ";
+		}
+		S= S.substring(0, S.length()-2);
+		S+= "]";
+		return S;
+	}
+
+	public Iterator<Composant> iterator() {
+		return this.iterator();
+	}
+
+	public ArrayList<String> hierarchie() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add(this.toString());
+		return list;
 	}
 
 }
