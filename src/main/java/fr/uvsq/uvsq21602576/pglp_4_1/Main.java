@@ -13,20 +13,21 @@ public enum Main {
 		Personnel p5 = new Personnel.Builder("3", "1", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
 		Personnel p6 = new Personnel.Builder("4", "1", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
 
-		Groupe g = new Groupe();
+		Groupe g = new Groupe("G1");
 		g.add(p);
 		g.add(p2);
-		Groupe g2 = new Groupe();
+		Groupe g2 = new Groupe("G2");
 		g2.add(p3);
 		g2.add(p4);
 		g2.add(g);
 		g2.add(p6);
-		Groupe g3 = new Groupe();
+		Groupe g3 = new Groupe("G3");
 		g3.add(p5);
 		g3.add(g2);
 		
 		Annuaire A = new Annuaire(g3);
 		System.out.println(A.hierachie());
+		System.out.println(A.groupe());
 	}
 
 	public static void main(String[] args) {

@@ -18,5 +18,29 @@ public class Annuaire {
 		}
 		return S;
 	}
+	
+	public String groupe() {
+		ArrayList<Composant> ATraiter = new ArrayList<Composant>();
+		ArrayList<Composant> ATraiterSuiv = new ArrayList<Composant>();
+		ATraiterSuiv.add(racine);
+		Composant c;
+		String S = "";
+		while(!ATraiter.isEmpty() || !ATraiterSuiv.isEmpty()) {
+			if(ATraiter.isEmpty()) {
+				ATraiter.addAll(ATraiterSuiv);
+				ATraiterSuiv.clear();
+				S+="---\n";
+			}
+			c = ATraiter.remove(0);
+			S+= c.toString()+"\n";
+			if(c instanceof Iterable) {
+				Iterator<Composant> ite  = ((Iterable<Composant>) c).iterator();
+				while(ite.hasNext()) {
+					ATraiterSuiv.add(ite.next());
+				}
+			}
+		}
+		return S;
+	}
 
 }

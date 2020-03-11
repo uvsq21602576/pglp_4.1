@@ -13,13 +13,13 @@ public class AnnuaireTest {
 		Personnel p = new Personnel.Builder("1", "1", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
 		Personnel p2 = new Personnel.Builder("1", "2", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
 		
-		Groupe g = new Groupe();
+		Groupe g = new Groupe("G");
 		g.add(p);
 		g.add(p2);
 		
 		Annuaire A = new Annuaire(g);
 		
-		String expected = "Groupe\n" + "\t|-   " + p.toString() + "\n"
+		String expected = "Groupe G (2)\n" + "\t|-   " + p.toString() + "\n"
 				+ "\t|-   " + p2.toString() + "\n";
 		assertEquals(expected,A.hierachie());
 	}

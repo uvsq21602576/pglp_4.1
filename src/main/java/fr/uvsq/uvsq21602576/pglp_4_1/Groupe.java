@@ -3,25 +3,27 @@ package fr.uvsq.uvsq21602576.pglp_4_1;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Groupe implements Composant{
+public class Groupe implements Composant, Iterable<Composant> {
+	private String nom;
 	private ArrayList<Composant> composantFils;
-	
-	public Groupe() {
+
+	public Groupe(String nom) {
+		this.nom = nom;
 		composantFils = new ArrayList<Composant>();
 	}
 
 	public void add(Composant c) {
 		composantFils.add(c);
 	}
-	
+
 	public Composant get(int index) {
 		return composantFils.get(index);
 	}
-	
+
 	public Composant remove(int index) {
 		return composantFils.remove(index);
 	}
-	
+
 	@Override
 	public boolean equals(Object O) {
 		if(O==null || !(O instanceof Groupe))
@@ -34,18 +36,18 @@ public class Groupe implements Composant{
 				return false;
 		}
 	}
-	
+
 	public boolean containsAll(ArrayList<Composant> c) {
 		return composantFils.containsAll(c);
 	}
-	
+
 	public int size() {
 		return composantFils.size();
 	}
 
 	public ArrayList<String> hierarchie() {
 		ArrayList<String> list = new ArrayList<String>();
-		list.add("Groupe");
+		list.add(this.toString());
 		Iterator<Composant> ite = this.iterator();
 		Composant c;
 		while(ite.hasNext()) {
@@ -60,8 +62,14 @@ public class Groupe implements Composant{
 		}
 		return list;
 	}
+	
+	public String toString() {
+		return "Groupe " + this.nom + " (" + this.composantFils.size() + ")";
+	}
 
 	public Iterator<Composant> iterator() {
 		return composantFils.iterator();
 	}
+
+
 }

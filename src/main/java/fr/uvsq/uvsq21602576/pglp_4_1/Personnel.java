@@ -86,10 +86,6 @@ public class Personnel implements Composant{
 		return S;
 	}
 
-	public Iterator<Composant> iterator() {
-		return this.iterator();
-	}
-
 	public ArrayList<String> hierarchie() {
 		ArrayList<String> list = new ArrayList<String>();
 		list.add(this.toString());
