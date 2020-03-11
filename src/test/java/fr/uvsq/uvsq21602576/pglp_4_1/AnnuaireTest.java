@@ -23,4 +23,19 @@ public class AnnuaireTest {
 				+ "\t|-   " + p2.toString() + "\n";
 		assertEquals(expected,A.hierachie());
 	}
+	
+	@Test
+	public void groupeTest() {
+		Personnel p = new Personnel.Builder("1", "1", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
+		Personnel p2 = new Personnel.Builder("1", "2", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
+		
+		Groupe g = new Groupe("G");
+		g.add(p);
+		g.add(p2);
+		
+		Annuaire A = new Annuaire(g);
+		
+		String expected = "---\n" + g.toString() +"\n" + "---\n" + p.toString() + "\n" + p2.toString() + "\n";
+		assertEquals(expected,A.groupe());
+	}
 }

@@ -1,7 +1,6 @@
 package fr.uvsq.uvsq21602576.pglp_4_1;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Annuaire {
 	Composant racine;
@@ -33,8 +32,8 @@ public class Annuaire {
 			}
 			c = ATraiter.remove(0);
 			S+= c.toString()+"\n";
-			if(c instanceof Iterable) {
-				Iterator<Composant> ite  = ((Iterable<Composant>) c).iterator();
+			if(c instanceof IterableComposant) {
+				IterateurComposant ite  = ((IterableComposant) c).iterateur();
 				while(ite.hasNext()) {
 					ATraiterSuiv.add(ite.next());
 				}
