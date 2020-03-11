@@ -33,4 +33,11 @@ public class PersonnelTest {
 		assertEquals(new Telephone("06...", "portable"), p.getNumeros().get(0));
 	}
 	
+	@Test
+	public void toStringTest() {
+		Personnel p = new Personnel.Builder("Nom", "Prenom", LocalDate.of(2000,01,05), new Telephone("06...","portable")).build();
+		String expected = p.getNom() + " " + p.getPrenom() + ", " + p.getFonction() + " (" + p.getDateNaissance().toString() + ") [" + p.getNumeros().get(0).toString() + "]";
+		assertEquals(expected,p.toString());
+	}
+	
 }

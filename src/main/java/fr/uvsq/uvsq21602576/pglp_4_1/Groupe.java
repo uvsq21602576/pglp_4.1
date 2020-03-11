@@ -60,24 +60,6 @@ public class Groupe implements Composant{
 		}
 		return list;
 	}
-	
-	public ArrayList<String> groupe() {
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("Groupe");
-		Iterator<Composant> ite = this.iterator();
-		Composant c;
-		while(ite.hasNext()) {
-			c = ite.next();
-			for(String s : c.hierarchie()) {
-				if(s.substring(0, 1).equals("\t"))
-					s = "\t"+s;
-				else
-					s = "\t|-   "+s;
-				list.add(s);
-			}
-		}
-		return list;
-	}
 
 	public Iterator<Composant> iterator() {
 		return composantFils.iterator();

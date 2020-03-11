@@ -11,12 +11,6 @@ public class Annuaire {
 	}
 	
 	public String hierachie() {
-		/*Iterator<Composant> ite = racine.iterator();
-		String S = "";
-		while(ite.hasNext()) {
-			Composant C = ite.next();
-			S+= C.toString();
-		}*/
 		String S = "";
 		ArrayList<String> list = racine.hierarchie();
 		for(String s : list) {

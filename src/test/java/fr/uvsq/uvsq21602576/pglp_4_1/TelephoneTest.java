@@ -1,5 +1,6 @@
 package fr.uvsq.uvsq21602576.pglp_4_1;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -28,5 +29,11 @@ public class TelephoneTest {
 		assertFalse(T.equals(T2));
 	}
 
+	@Test
+	public void toStringTest() {
+		Telephone T = new Telephone("06", "portable");
+		String expected = "("+T.getInformation()+") "+T.getNumero();
+		assertEquals(expected,T.toString());
+	}
 
 }

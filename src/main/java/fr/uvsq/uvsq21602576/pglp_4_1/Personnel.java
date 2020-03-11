@@ -2,6 +2,7 @@ package fr.uvsq.uvsq21602576.pglp_4_1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Personnel implements Composant{
@@ -68,7 +69,7 @@ public class Personnel implements Composant{
 	}
 	
 	public ArrayList<Telephone> getNumeros() {
-		return new ArrayList<Telephone>(numeros);
+		return (ArrayList<Telephone>) Collections.unmodifiableList(numeros);
 	}
 	
 	@Override
