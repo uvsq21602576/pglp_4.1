@@ -1,8 +1,19 @@
 package fr.uvsq.uvsq21602576.pglp_4_1;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
+/**
+ * Interface composant.
+ * Noeud de l'arbre
+ * @author Flora
+ */
 public interface Composant {
-	public ArrayList<String> hierarchie();
+
+    /**
+     * Crée une représentation hierarchique de l'annuaire.
+     * La renvoie sous forme de chaine de caractère.
+     * (Parcours en profondeur récursif)
+     * @return représentation hiérarchique
+     */
+    ArrayList<String> hierarchie();
 }

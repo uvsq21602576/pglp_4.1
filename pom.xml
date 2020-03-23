@@ -57,6 +57,11 @@
 						</reports>
 					</reportSet>
 				</reportSets>
+				<configuration>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+					<configLocation>${basedir}/checkstyle.xml</configLocation>
+					<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
+				</configuration>
 			</plugin>
 			<!-- Plugin SpotBugs, éxécuté avec mvn site -->
 			<plugin>
