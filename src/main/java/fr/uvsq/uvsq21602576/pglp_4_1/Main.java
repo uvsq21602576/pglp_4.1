@@ -60,8 +60,9 @@ public enum Main {
 
     /**
      * main.
+     * @param arguments de la ligne de commande
      */
-    public static void main() {
+    public static void main(final String[] args) {
         MAIN.run();
     }
 }
